@@ -83,6 +83,15 @@ export function SchedulePopup({ open, onClose, mode, train }: SchedulePopupProps
         const response = await updateSchedule(train.id, form)
         updateTrain(train.id, response.data)
       }
+      setForm({
+        trainNumber: "",
+        departureStation: "",
+        arrivalStation: "",
+        departureTime: "",
+        arrivalTime: "",
+        platform: 1,
+        status: "on time",
+      })
       onClose()
     } catch (err) {
       console.error("Failed to save schedule:", err)
